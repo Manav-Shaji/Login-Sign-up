@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucifer | Sign Up</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/logo.png" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css" />
+
+    <!-- Flatpickr Script -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <main class="container" id="container">
+        <!-- Sign Up Form -->
+        <div class="form-container sign-up-container">
+            <form id="signup-form" novalidate>
+                <h1>Create Account</h1>
+
+                <!-- Full Name -->
+                <div class="form-field">
+                    <label for="signup-name" class="visually-hidden">Full Name</label>
+                    <input
+                        type="text"
+                        id="signup-name"
+                        name="fullname"
+                        placeholder="Full Name"
+                        required
+                        autocomplete="name"
+                        aria-label="Full Name"
+                    />
+                    <small id="name-error" class="error-msg"></small>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-field" style="position: relative;">
+                    <label for="signup-dob" class="visually-hidden">Date of Birth</label>
+                    <input
+                        type="text"
+                        id="signup-dob"
+                        name="dob"
+                        placeholder="Date of Birth"
+                        required
+                        aria-label="Date of Birth"
+                    />
+                    <i class="fas fa-calendar-alt calendar-icon" aria-hidden="true"></i>
+                    <small id="dob-error" class="error-msg"></small>
+                </div>
+
+                <!-- Email -->
+                <div class="form-field">
+                    <label for="signup-email" class="visually-hidden">Email</label>
+                    <input
+                        type="email"
+                        id="signup-email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        autocomplete="email"
+                        aria-label="Email"
+                    />
+                    <small id="email-error" class="error-msg"></small>
+                </div>
+
+                <!-- Password -->
+                <div class="form-field password-field password-wrapper">
+                    <label for="signup-password" class="visually-hidden">Password</label>
+                    <input
+                        type="password"
+                        id="signup-password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        autocomplete="new-password"
+                        aria-label="Password"
+                    />
+                    <button
+                        type="button"
+                        class="eye-icon"
+                        onclick="togglePasswordVisibility('signup-password', this)"
+                        aria-label="Toggle password visibility"
+                    >
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <small id="password-error" class="error-msg"></small>
+                </div>
+
+                <!-- Password Strength Meter -->
+                <div id="pass-meter">
+                    <span id="meter-outer">
+                        <span id="meter-inner"></span>
+                    </span>
+                    <span id="pwd-desc" aria-live="polite"></span>
+                </div>
+
+                <button type="submit">Sign Up</button>
+
+                <!-- Divider -->
+                <div id="divider" role="separator" aria-label="Or sign up with">
+                    <div class="divider-line"></div>
+                    <span id="divider-text">or</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Social Buttons -->
+                <div id="auth-btns">
+                    <button type="button" class="auth-btn google">
+                        <i class="fab fa-google"></i> Sign up with Google
+                    </button>
+                    <button type="button" class="auth-btn facebook">
+                        <i class="fab fa-facebook-f"></i> Sign up with Facebook
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-container sign-in-container">
+            <form id="login-form">
+                <h1>Sign in</h1>
+
+                <!-- Email -->
+                <div class="form-field">
+                    <label for="login-email" class="visually-hidden">Email</label>
+                    <input
+                        type="email"
+                        id="login-email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        autocomplete="email"
+                    />
+                </div>
+
+                <!-- Password -->
+                <div class="form-field password-field password-wrapper">
+                    <label for="login-password" class="visually-hidden">Password</label>
+                    <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                        autocomplete="current-password"
+                    />
+                    <button
+                        type="button"
+                        class="eye-icon"
+                        onclick="togglePasswordVisibility('login-password', this)"
+                        aria-label="Toggle password visibility"
+                    >
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <button type="submit">Login</button>
+                <br />
+                <a href="#" class="forgot-link">Forgot password?</a>
+            </form>
+        </div>
+
+        <!-- Overlay Panels -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected, please login here</p>
+                    <br />
+                    <button class="ghost" id="signIn">Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your details to sign up</p>
+                    <br />
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+    <script>
+        flatpickr("#signup-dob", {
+            dateFormat: "Y-m-d",
+            maxDate: "today",
+            altInput: true,
+            altFormat: "F j, Y",
+            theme: "dark"
+        });
+    </script>
+</body>
+</html>
