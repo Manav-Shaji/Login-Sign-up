@@ -33,7 +33,7 @@
 
 body {
     font-family: system-ui, sans-serif;
-    background: url('./images/Background.jpg') center/cover no-repeat fixed;
+    background: url('./Images/Background.jpg') center/cover no-repeat fixed;
     color: var(--color-text-primary);
     display: flex;
     justify-content: center;
@@ -62,7 +62,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: url('./images/ContainerBG.jpg') center/cover no-repeat;
+    background: url('./Images/ContainerBG.jpg') center/cover no-repeat;
     z-index: 0;
 }
 
